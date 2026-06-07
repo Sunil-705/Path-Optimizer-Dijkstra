@@ -31,7 +31,7 @@ const App = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/shortd/${a}/${b}`
+        `https://path-optimizer-dijkstra.onrender.com/shortd/${a}/${b}`
       );
 
       if (!response.ok) {
@@ -44,7 +44,7 @@ const App = () => {
       setDisplay(true);
     } catch (err) {
       console.error(err);
-      setError("Failed to fetch data.");
+      setError("Failed to fetch data. Please try again.");
       setDisplay(false);
       setData(null);
     } finally {
@@ -84,7 +84,11 @@ const App = () => {
             />
           </div>
 
-          <button className="formButton" type="submit" disabled={loading}>
+          <button
+            className="formButton"
+            type="submit"
+            disabled={loading}
+          >
             {loading ? "Finding Shortest Route..." : "Submit"}
           </button>
         </form>
